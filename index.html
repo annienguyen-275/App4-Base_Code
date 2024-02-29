@@ -44,11 +44,6 @@ https://stackoverflow.com/questions/8211128/multiple-distinct-pages-in-one-html-
         var yesAutismPercent = 0; // variable that stores the probability of having ASD; set to 0
         var noAutismPercent = 0; // variable that stores the probability of not having ASD; set to 0
 
-	var yesAutismPercent = 100*(yesAutism_count/4); // variable that calculates ASD probability
-	var noAutismPercent = 100*(noAutism_count/4); // variable that calculates no ASD probability
-
-	var resultText = document.getElementById("results"); // variable that stores results text 
-
         function yesAutismAdd(){ // function that adds 1  to ASD count
 		yesAutism_count = yesAutism_count + 1;
         }
@@ -58,6 +53,9 @@ https://stackoverflow.com/questions/8211128/multiple-distinct-pages-in-one-html-
 	}
 	
 	function getResults(){ // function that makes results with probabilities appear in results paragraph
+		var yesAutismPercent = 100*(yesAutism_count/4); // variable that calculates ASD probability
+		var noAutismPercent = 100*(noAutism_count/4); // variable that calculates no ASD probability
+		var resultText = document.getElementById("results"); // variable that stores results text 
 		resultText.innerHTML = "Probability of having ASD = " + yesAutismPercent + "%" + "<br> Probability of not having ASD = " + noAutismPercent + "%";
 	}
 
