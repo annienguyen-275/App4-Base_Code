@@ -44,8 +44,8 @@ https://stackoverflow.com/questions/8211128/multiple-distinct-pages-in-one-html-
         var yesAutismPercent = 0; // variable that stores the probability of having ASD; set to 0
         var noAutismPercent = 0; // variable that stores the probability of not having ASD; set to 0
 
-	var yesAutismPercent = 100*(allergy_count/4); // variable that calculates ASD probability
-	var noAutismPercent = 100*(cold_count/4); // variable that calculates no ASD probability
+	var yesAutismPercent = 100*(yesAutism_count/4); // variable that calculates ASD probability
+	var noAutismPercent = 100*(noAutism_count/4); // variable that calculates no ASD probability
 
 	var resultText = document.getElementById("results"); // variable that stores results text 
 
@@ -124,7 +124,7 @@ https://stackoverflow.com/questions/8211128/multiple-distinct-pages-in-one-html-
 	<div id="content" class="w3-container"> <!-- contains question and buttons content -->
 		<p>Can you keep eye contact with someone in a conversation?</p> <!-- question 2 text -->
 		<a href="#three"   onclick="noAutismAdd();" class="w3-btn w3-black">Yes</a> <!-- button that links to question 3 when clicked & adds 1 to no ASD count -->
-		<a href="#three"   onclick="allergyAdd();" class="w3-btn w3-black">No</a> <!-- button that links to question 3 when clicked & adds 1 to ASD count -->
+		<a href="#three"   onclick="yesAutismAdd();" class="w3-btn w3-black">No</a> <!-- button that links to question 3 when clicked & adds 1 to ASD count -->
 	</div>
 </div>	
 
