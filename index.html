@@ -42,12 +42,13 @@ https://stackoverflow.com/questions/8211128/multiple-distinct-pages-in-one-html-
         var noAutism_count = 0; // variable that stores how many times button for no ASD is clicked; set to 0
         var yesAutismPercent = 0; // variable that stores the probability of having ASD; set to 0
         var noAutismPercent = 0; // variable that stores the probability of not having ASD; set to 0
+	var resultText = document.getElementById("results"); // variable that stores results text 
 
         function yesAutismAdd(){ // function that adds 1  to ASD count
             yesAutism_count = yesAutism_count + 1;
         }
 
-        function coldAdd(){ // function that adds 1 to no ASD count
+        function noAutismAdd(){ // function that adds 1 to no ASD count
             noAutism_count = noAutism_count + 1;
 
 </script>	
@@ -77,9 +78,90 @@ https://stackoverflow.com/questions/8211128/multiple-distinct-pages-in-one-html-
 </style>
 
 <body>
+<div id="header" class="w3-container w3-flat-carrot"> <!-- contains header content -->
+	<h1>Autism Self-Assessment</h1> <!-- header title -->
+</div>
 	
-	<!-- HERE IS WHERE ALL OF YOUR HTML PAGES GO -->
-	REPLACE THIS TEXT
+<div id="content" class="w3-container"> <!-- contains text content -->
+	<p>Do you think you have symptoms of autism but aren't sure if you actually have autism? Answer a few short questions to find out if you would benefit from being evaluated by a healthcare professional or specialist.</p>
+	
+	<a href="#one" class="w3-btn w3-grey w3-round"> Get Started </a> <!-- button that links to question 1 when clicked -->
+	
+	<p>The following code has been developed by students and/or researchers of the Freshman Research Initiative DIY Diagnostics Stream at The University of Texas at Austin.  This code is shared for demonstration purposes and should not be considered a product -- it is for entertainment purposes only. Any user of this code does so at their own risk. Members of the DIY Stream, FRI, and The University of Texas system are not liable for anything related to this code.</p>
+ 	
+	<p>THIS CODE SHOULD NOT BE USED TO DIAGNOSE ANY KIND OF MEDICAL CONDITION.</p>
+</div> <!-- added closing div tag to fix footer; missing in original code -->
+
+<!-- QUESTION 1 PAGE -->
+<div class="page" id="one"> <!-- contains page content -->
+	<div id="header" class="w3-container w3-flat-carrot"> <!-- contains header content -->
+		<h1>Question 1</h1> <!-- header title -->
+	</div>
+	
+    	<div id="content" class="w3-container"> <!-- contains question and buttons content -->
+		<p>Do you have a restricted or repetitive behavior or interest that others might consider unusual?</p> <!-- question 1 text -->    
+		<a href="#two"  onclick="yesAutismAdd();" class="w3-btn w3-black"> Yes</a> <!-- button that links to question 2 when clicked & adds 1 to ASD count -->
+         	<a href="#two"  onclick="noAutismAdd();" class="w3-btn w3-black">No</a> <!-- button that links to question 2 when clicked & adds 1 to no ASD count -->
+ 	</div>
+</div>
+
+<!-- QUESTION 2 PAGE -->
+<div class="page" id="two"> <!-- contains page content -->
+	<div class="w3-container w3-flat-carrot"> <!-- contains header content -->
+		<h1>Question 2</h1> <!-- header title -->
+	</div>
+	
+	<div id="content" class="w3-container"> <!-- contains question and buttons content -->
+		<p>Can you keep eye contact with someone in a conversation?</p> <!-- question 2 text -->
+		<a href="#three"   onclick="noAutismAdd();" class="w3-btn w3-black">Yes</a> <!-- button that links to question 3 when clicked & adds 1 to no ASD count -->
+		<a href="#three"   onclick="allergyAdd();" class="w3-btn w3-black">No</a> <!-- button that links to question 3 when clicked & adds 1 to ASD count -->
+	</div>
+</div>	
+
+<!-- QUESTION 3 PAGE -->
+<div class="page" id="three"> <!-- contains page content -->
+	<div class="w3-container w3-flat-carrot"> <!-- contains header content -->
+		<h1>Question 3</h1> <!-- header title -->
+	</div>
+	
+	<div id="content" class="w3-container"> <!-- contains question and buttons content -->
+		<p>Is it hard for you to read someone else's facial expressions or body language when talking to them?</p> <!-- question 3 text -->
+		<a href="#four"   onclick="yesAutismAdd();" class="w3-btn w3-black">Yes</a> <!-- button that links to question 4 when clicked & adds 1 to ASD count -->
+		<a href="#four"   onclick="noAutismAdd();" class="w3-btn w3-black">No</a> <!-- button that links to question 4 when clicked & adds 1 to no ASD count -->
+	</div>
+</div>	
+
+<!-- QUESTION 4 PAGE -->
+<div class="page" id="four"> <!-- contains page content -->
+	<div class="w3-container w3-flat-carrot"> <!-- contains header content -->
+		<h1>Question 4</h1> <!-- header title -->
+	</div>
+	
+	<div id="content" class="w3-container"> <!-- contains question and buttons content -->
+		<p>Are you flexible to changes in your routine?</p> <!-- question 4 text -->
+		<a href="#five"   onclick="noAutismAdd();" class="w3-btn w3-black">Yes</a> <!-- button that links to results page when clicked & adds 1 to no ASD count -->
+		<a href="#five"   onclick="yesAutismAdd();" class="w3-btn w3-black">No</a> <!-- button that links to results page when clicked & adds 1 to ASD count -->
+	</div>
+</div>
+
+<!-- RESULTS PAGE -->
+<div class="page" id="five"> <!-- contains page content -->
+	<div class="w3-container w3-flat-carrot"> <!-- contains header content -->
+		<h1>Results</h1> <!-- header title -->
+	</div>
+	
+	<div id="content" class="w3-container"> <!-- contains results content -->
+		<p id="results"></p> <!-- empty text where results will appear -->
+		<a onclick="getResults()" class="w3-btn w3-black">Get results</a> <!-- button that changes text when clicked -->
+		function getResults() // function that makes results with probabilities appear in results paragraph
+		resultText.innerHTML = "Probability of having ASD = " + yesAutismPercent + "%" + "<br> Probability of not having ASD = " + noAutismPercent + "%";
+	</div>
+</div>
+
+<footer class="w3-bottom w3-container w3-flat-carrot"> <!-- contains footer content across all pages -->
+	<p>DIY!</p> <!-- footer text -->
+</footer>
+
 	
 </body>
 </html>
