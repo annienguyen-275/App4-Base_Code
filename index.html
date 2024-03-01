@@ -17,11 +17,10 @@ Timothy Riedel
 triedel@utexas.edu
  
 Brief Description of Goal of Code:
-The goal of this code is to calculate the probability of whether or not someone has Autism spectrum disorder (ASD).
+The goal of this code is to calculate the probability of someone has gingivitis or periodontitis.
  
 Known Issues:
-blah, blah, blah, blah
-Ignore this error message if you see it using the javaScript console: Error with Permissions-Policy header: Origin trial controlled feature not enabled: 'interest-cohort'.
+There are no known issues in this code.
 
 References:
 https://www.w3schools.com/w3css/default.asp
@@ -38,25 +37,25 @@ https://stackoverflow.com/questions/8211128/multiple-distinct-pages-in-one-html-
 
 <script> // contains javascript content
 
-        var yesAutism_count = 0; // variable that stores how many times button for ASD is clicked; set to 0
-        var noAutism_count = 0; // variable that stores how many times button for no ASD is clicked; set to 0
+        var gingivitis_count = 0; // variable that stores how many times button for gingivitis is clicked; set to 0
+        var periodontitis_count = 0; // variable that stores how many times button for no periodontitis is clicked; set to 0
 
-        var yesAutismPercent = 0; // variable that stores the probability of having ASD; set to 0
-        var noAutismPercent = 0; // variable that stores the probability of not having ASD; set to 0
+        var gingivitisPercent = 0; // variable that stores the probability of gingivitis; set to 0
+        var periodontitisPercent = 0; // variable that stores the probability of periodontitis; set to 0
 
-        function yesAutismAdd(){ // function that adds 1  to ASD count
-		yesAutism_count = yesAutism_count + 1;
+        function gingivitisAdd(){ // function that adds 1  to gingivitis count
+		gingivitis_count = gingivitis_count + 1;
         }
 
-        function noAutismAdd(){ // function that adds 1 to no ASD count
-		noAutism_count = noAutism_count + 1;
+        function periodontitisAdd(){ // function that adds 1 to periodontitis count
+		periodontitis_count = periodontitis_count + 1;
 	}
 	
 	function getResults(){ // function that makes results with probabilities appear in results paragraph
-		var yesAutismPercent = 100*(yesAutism_count/4); // variable that calculates ASD probability
-		var noAutismPercent = 100*(noAutism_count/4); // variable that calculates no ASD probability
+		var gingivitisPercent = 100*(gingivitis_count/4); // variable that calculates gingivitis probability
+		var periodontitisPercent = 100*(periodontitis_count/4); // variable that calculates periodontitis probability
 		var resultText = document.getElementById("results"); // variable that stores results text 
-		resultText.innerHTML = "Probability of having ASD = " + yesAutismPercent + "%" + "<br> Probability of not having ASD = " + noAutismPercent + "%";
+		resultText.innerHTML = "Probability of having gingivitis = " + gingivitisPercent + "%" + "<br> Probability of periodontitis = " + periodontitisPercent + "%";
 	}
 
 </script>	
@@ -87,11 +86,11 @@ https://stackoverflow.com/questions/8211128/multiple-distinct-pages-in-one-html-
 
 <body>
 <div id="header" class="w3-container w3-flat-carrot"> <!-- contains header content -->
-	<h1>Autism Self-Assessment</h1> <!-- header title -->
+	<h1>Gingivitis or Periodontitis?</h1> <!-- header title -->
 </div>
 	
 <div id="content" class="w3-container"> <!-- contains text content -->
-	<p>Do you think you have symptoms of autism? Answer a few short questions to find out if you would benefit from being evaluated by a healthcare professional or specialist.</p>
+	<p>Are you feeling like you might have gingivitis but wonder if it has advanced to periodontitis? Answer a few short questions to find out if you would benefit from being evaluated by a dentist.</p>
 	
 	<a href="#one" class="w3-btn w3-grey w3-round"> Get Started </a> <!-- button that links to question 1 when clicked -->
 	
@@ -107,9 +106,9 @@ https://stackoverflow.com/questions/8211128/multiple-distinct-pages-in-one-html-
 	</div>
 	
     	<div id="content" class="w3-container"> <!-- contains question and buttons content -->
-		<p>Do you have a restricted or repetitive behavior or interest?</p> <!-- question 1 text -->    
-		<a href="#two"  onclick="yesAutismAdd();" class="w3-btn w3-black"> Yes</a> <!-- button that links to question 2 when clicked & adds 1 to ASD count -->
-         	<a href="#two"  onclick="noAutismAdd();" class="w3-btn w3-black">No</a> <!-- button that links to question 2 when clicked & adds 1 to no ASD count -->
+		<p>Are you comfortable with chewing or biting?</p> <!-- question 1 text -->    
+		<a href="#two"  onclick="gingivitisAdd();" class="w3-btn w3-black"> Yes</a> <!-- button that links to question 2 when clicked & adds 1 to gingivitis count -->
+         	<a href="#two"  onclick="periodontitisAdd();" class="w3-btn w3-black">No</a> <!-- button that links to question 2 when clicked & adds 1 to periodontitis count -->
  	</div>
 </div>
 
@@ -120,9 +119,9 @@ https://stackoverflow.com/questions/8211128/multiple-distinct-pages-in-one-html-
 	</div>
 	
 	<div id="content" class="w3-container"> <!-- contains question and buttons content -->
-		<p>Can you keep eye contact with someone in a conversation?</p> <!-- question 2 text -->
-		<a href="#three"   onclick="noAutismAdd();" class="w3-btn w3-black">Yes</a> <!-- button that links to question 3 when clicked & adds 1 to no ASD count -->
-		<a href="#three"   onclick="yesAutismAdd();" class="w3-btn w3-black">No</a> <!-- button that links to question 3 when clicked & adds 1 to ASD count -->
+		<p>Do you have any loose teeth?</p> <!-- question 2 text -->
+		<a href="#three"   onclick="periodontitisAdd();" class="w3-btn w3-black">Yes</a> <!-- button that links to question 3 when clicked & adds 1 to periodontitis count -->
+		<a href="#three"   onclick="gingivitisAdd();" class="w3-btn w3-black">No</a> <!-- button that links to question 3 when clicked & adds 1 to gingivitis count -->
 	</div>
 </div>	
 
@@ -133,9 +132,9 @@ https://stackoverflow.com/questions/8211128/multiple-distinct-pages-in-one-html-
 	</div>
 	
 	<div id="content" class="w3-container"> <!-- contains question and buttons content -->
-		<p>Is it hard for you to read someone else's facial expressions or body language when talking to them?</p> <!-- question 3 text -->
-		<a href="#four"   onclick="yesAutismAdd();" class="w3-btn w3-black">Yes</a> <!-- button that links to question 4 when clicked & adds 1 to ASD count -->
-		<a href="#four"   onclick="noAutismAdd();" class="w3-btn w3-black">No</a> <!-- button that links to question 4 when clicked & adds 1 to no ASD count -->
+		<p>Are there widening gaps between your teeth?</p> <!-- question 3 text -->
+		<a href="#four"   onclick="periodontitisAdd();" class="w3-btn w3-black">Yes</a> <!-- button that links to question 4 when clicked & adds 1 to periodontitis count -->
+		<a href="#four"   onclick="gingivitisAdd();" class="w3-btn w3-black">No</a> <!-- button that links to question 4 when clicked & adds 1 to gingivitis count -->
 	</div>
 </div>	
 
@@ -146,9 +145,9 @@ https://stackoverflow.com/questions/8211128/multiple-distinct-pages-in-one-html-
 	</div>
 	
 	<div id="content" class="w3-container"> <!-- contains question and buttons content -->
-		<p>Are you flexible to changes in your routine?</p> <!-- question 4 text -->
-		<a href="#five"   onclick="noAutismAdd();" class="w3-btn w3-black">Yes</a> <!-- button that links to results page when clicked & adds 1 to no ASD count -->
-		<a href="#five"   onclick="yesAutismAdd();" class="w3-btn w3-black">No</a> <!-- button that links to results page when clicked & adds 1 to ASD count -->
+		<p>Are your gums receding?</p> <!-- question 4 text -->
+		<a href="#five"   onclick="periodontitisAdd();" class="w3-btn w3-black">Yes</a> <!-- button that links to results page when clicked & adds 1 to periodontitis count -->
+		<a href="#five"   onclick="gingivitisAdd();" class="w3-btn w3-black">No</a> <!-- button that links to results page when clicked & adds 1 to gingivitis count -->
 	</div>
 </div>
 
